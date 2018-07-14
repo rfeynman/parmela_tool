@@ -1,7 +1,8 @@
 '''
 Created on Jul 5, 2018
 
-@author: wange
+@author: Erdong Wang
+calculate the spin angle envolution in focusing channel with E field, Need the Timestep table file and bfield table file from parmela. 
 '''
 import numpy as np
 
