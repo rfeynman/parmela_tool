@@ -1,7 +1,7 @@
 '''
 Created on Jul 19, 2017
 
-@author: wange
+@author: Erdong Wang
 combine multiple colume into sigle TIMESTEP file. choose the coleum and phase steps and run the code
 THE usefuldata number is the line with "Data"
 The last two lines of superfish possion table file should be remove.
