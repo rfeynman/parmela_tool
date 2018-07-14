@@ -1,7 +1,7 @@
 '''
 Created on Jul 19, 2017
 This code for compbine the table. TBL file from parmela
-@author: wange
+@author: Erdong Wang
 combine multiple colume into sigle TIMESTEP file. choose the coleum and phase steps and run the code
 '''
 
