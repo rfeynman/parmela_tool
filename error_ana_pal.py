@@ -2,7 +2,8 @@
 #This is pal version, that can run the multiple parmela at once. Limited by the # of CPU
 #author: Erdong Wang
 #Version 1.3 Jun.24th 2025
-
+# useage:
+#   python error_ana.py rr6.inp error.yaml 
 
 import os
 import sys

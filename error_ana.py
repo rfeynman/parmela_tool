@@ -2,6 +2,8 @@
 #This is slow version, that can run the single parmela.
 #author: Erdong Wang
 #Version 0.8 Jun.3rd 2025
+# useage:
+#   python error_ana.py rr6.inp error.yaml
 
 import os
 import sys
