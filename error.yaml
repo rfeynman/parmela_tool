@@ -1,0 +1,27 @@
+# Number of independent error simulations
+runs: 60
+
+# cell RF phase error parameters
+cell_rf_phase_sig: 0.015
+cell_rf_phase_bound: 0.015
+cell_rf_phase_mean: 0.0
+
+# cell RF amplitude error parameters
+cell_rf_amp_sig: 0.00025
+cell_rf_amp_bound: 0.00025
+cell_rf_amp_mean: 0.0
+
+# trwave RF phase error parameters
+trwave_rf_phase_sig: 2
+trwave_rf_phase_bound: 2
+trwave_rf_phase_mean: 0.0
+
+# trwave RF amplitude error parameters
+trwave_rf_amp_sig: 0.001
+trwave_rf_amp_bound: 0.001
+trwave_rf_amp_mean: 0.0
+
+# Power supply (PS) amplitude error parameters
+ps_amp_sig: 0.0002
+ps_amp_bound: 0.0002
+ps_amp_mean: 0.0

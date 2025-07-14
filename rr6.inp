@@ -1,0 +1,2401 @@
+!@var 0 0  10 -600 600 197MHz
+!@var 0 1  0.02 0.0 2 197MHz
+!@var 0 2  2 -600 600 abandon
+!@var 0 3  0.02 0.0 2 abandon
+!@var 0 4  2 -600 600 1300taper
+!@var 0 5  0.02 0.0 2 1300taper
+
+!@var 0 6  0.5 1 20
+!@var 0 7  0.5 0.1 20
+!@var 0 8  0.5 1 10
+
+!@var 0 9  2 -600 600 2nd591 phase
+!@var 0 10  2 -600 600 solenoid between 27 and 16 useless
+
+!@var 0 11  2 -600 600 solenoid1 before dipole
+!@var 0 12  2 -600 600 solenoid2 before dipole
+!@var 0 13  2 -600 600 solenoid3 after dipole
+!@var 0 14  2 -600 600 solenoid4 after dipole
+!@var 0 15  2 -600 600 solenoid5 after dipole
+!@var 1 16  2 -600 600 solenoid6 before taper
+!@var 1 17  2 -1300 1300 solenoid5 after taper
+!@var 1 18  2 -2000 2000 solenoid6 after spin diag
+
+!@var 1 27  2 -600 600 solenoid6 after buncher
+!@var 0 28  0.1 0.1 1.5 beam size
+!@var 0 29  2 100 300 bunch length
+
+!@var 0 19 5 0 1050 Q1
+!@var 0 20 5 -1000 -30 Q2
+!@var 0 21 5 0 1050 Q3
+
+!@var 0 22 2 -90 450 Linac 4 pahse
+!@var 0 23 2 -90 450 Linac 5 pahse
+!@var 0 24 2 -90 450 Linac 6 pahse
+!@var 0 25 2 -90 450 Linac 7 pahse
+!@var 0 26 2 -90 450 Linac 8 pahse
+
+!@var 0 30  2 -600 600 1300phase
+
+
+
+! This eRHIC RR injector was referenced by SLAC, NCLS II
+!RUN  run#  prnflag  f0[MHz]  Z0[cm]  W0[MeV]  linactype  m1*c, Z0 at 300ps half of bunch length 0.00562 cm; 1 ns,0.0188
+RUN  2000 1 2856  -0.0188 0.4e-6  1
+
+TITLE
+EIC Pre-injector including DC gun, bunching system and booster
+
+! ****** drift 00, length = 0cm, start at cathode  ****** 
+drift  0  2.5  1 ! element 1, total length = 0 cm
+
+! ****** gun-e-field, electrostatic field in e-source 350kV ****** 
+! eRinjector\BNL gun\ BNL_polarized gun \v2\final
+! -1 means 350 keV, -0.914 means 320 keV
+poisson  -7.44 -0.914  0  0  0  0  1  1 
+GUN350_22.T7
+
+CATHODE 0 1.26 1 0 0.0
+
+!---Drift_1, length = 30.7 cm, excel line #3 -------------
+! ****** drift 01-1, length = 6.7cm ****** 
+drift  1.0  3  1 ! element 2, total length = 1 cm
+drift  1.0  3  1 ! element 3, total length = 2 cm
+drift  1.0  3  1 ! element 4, total length = 3 cm
+drift  1.0  3  1 ! element 5, total length = 4 cm
+drift  1.0  3  1 ! element 6, total length = 5 cm
+drift  1.0  3  1 ! element 7, total length = 6 cm
+drift  0.7  3  1 ! element 8, total length = 6.7 cm
+! ****** drift 01-2, length = 12cm   ****** 
+drift  2  3  1 ! element 9, total length = 8.7 cm
+drift  2  3  1 ! element 10, total length = 10.7 cm
+drift  2  3  1 ! element 11, total length = 12.7 cm
+drift  2  3  1 ! element 12, total length = 14.7 cm
+drift  2  3  1 ! element 13, total length = 16.7 cm
+drift  2  3  1 ! element 14, total length = 18.7 cm
+! ****** drift 01-3, length = 12cm    ****** 
+drift  2  3  1 ! element 15, total length = 20.7 cm
+drift  2  3  1 ! element 16, total length = 22.7 cm
+drift  2  3  1 ! element 17, total length = 24.7 cm
+drift  2  3  1 ! element 18, total length = 26.7 cm
+drift  2  3  1 ! element 19, total length = 28.7 cm
+drift  2  3  1 ! element 20, total length = 30.7 cm
+
+
+!@subs 1 4 11
+Solenoid 10 5 1 2.3690526186e+02
+
+!*****drift 04 ,length =51 cm,  excel line #5 -------------
+drift  5  3  1 ! element 21, total length = 45.7 cm
+drift  5  3  1 ! element 22, total length = 50.7 cm
+drift  5  3  1 ! element 23, total length = 55.7 cm
+drift  5  3  1 ! element 24, total length = 60.7 cm
+drift  5  3  1 ! element 25, total length = 65.7 cm
+drift  5  3  1 ! element 26, total length = 70.7 cm
+drift  5  3  1 ! element 27, total length = 75.7 cm
+drift  5  3  1 ! element 28, total length = 80.7 cm
+drift  5  3  1 ! element 29, total length = 85.7 cm
+drift  5  3  1 ! element 30, total length = 90.7 cm
+drift  1  3  1 ! element 31, total length = 91.7 cm
+
+!@subs 1 4 12
+Solenoid 10 5 1 1.2354710696e+02
+
+!*****drift 06 ,length =23 cm,  excel line #7 -------------
+drift  5  3  1 ! element 32,
+drift  5  3  1 ! element 33,
+drift  5  3  1 ! element 34,
+drift  5  3  1 ! element 35,
+drift  3  3  1 ! element 36, total length = 116.7 cm
+
+
+!---Dipole path length, length =20.226 cm, excel line #8 -------
+! BEND L, Ra, OutputFlag, Wr, ar(in degree), B1, B2, Y1, Y2, REdge1, REdge2, K1, g/2, K2   ! page #47
+! Arc length =2*Pi*r*theta/360  = 20.0651 [theta in degree]
+ 
+BEND 20.0651 4 1 0.32037 16 4 4 0 0 0 0 0 4 0  
+
+
+!*****drift 07 ,length =21 cm,  excel line #9-------------
+drift  3  3.5  1 ! element 37, total length = 139.7 cm
+drift  3  3.5  1 ! element 38,
+drift  3  3.5  1 ! element 39,
+drift  3  3.5  1 ! element 40,
+drift  3  3.5  1 ! element 41, total length = 151.7 cm
+drift  3  3.5  1 ! element 40,
+drift  3  3.5  1 ! element 41, total length = 151.7 cm
+
+!@subs 1 4 13
+Solenoid 5 5 1 1.1723e+02
+!@subs 1 4 -13
+Solenoid 5 5 1 -1.1723e+02
+
+! ****** 1st Wien start ; drift 08, length = 70 cm, excel line #11 reserve for wien****** 
+drift 5 3.5 1 ! element 42, 
+drift 5 3.5 1 ! element 43
+drift 5 3.5 1 ! element 44
+drift 5 3.5 1 ! element 45
+drift 5 3.5 1 ! element 46
+drift 5 3.5 1 ! element 47
+drift 5 3.5 1 ! element 42, 
+drift 5 3.5 1 ! element 43
+drift 5 3.5 1 ! element 44
+drift 5 3.5 1 ! element 45
+drift 5 3.5 1 ! element 46
+drift 5 3.5 1 ! element 47
+drift 5 3.5 1 ! element 46
+drift 5 3.5 1 ! element 47
+drift 5 3.5 1 ! element 46
+drift 5 3.5 1 ! element 47
+!************1st Wien ends************8
+drift  5  4  1 ! element 41,
+!@subs 1 4 14 
+Solenoid 5 5 1 1.3567276894e+02
+!@subs 1 4 -14 
+Solenoid 5 5 1 -1.3567276894e+02
+drift  5  4  1 ! element 41,
+
+! ****** 2nd Wien start; drift 08, length = 70 cm, excel line #11 reserve for wien****** 
+drift 5 3.5 1 ! element 42, 
+drift 5 3.5 1 ! element 43
+drift 5 3.5 1 ! element 44
+drift 5 3.5 1 ! element 45
+drift 5 3.5 1 ! element 46
+drift 5 3.5 1 ! element 47
+drift 5 3.5 1 ! element 42, 
+drift 5 3.5 1 ! element 43
+drift 5 3.5 1 ! element 44
+drift 5 3.5 1 ! element 45
+drift 5 3.5 1 ! element 46
+drift 5 3.5 1 ! element 47
+drift 5 3.5 1 ! element 46
+drift 5 3.5 1 ! element 47
+drift 5 3.5 1 ! element 46
+drift 5 3.5 1 ! element 47
+
+!@subs 1 4 15
+Solenoid 5 5 1 12.124e+01
+!@subs 1 4 -15
+Solenoid 5 5 1 -12.124e+01
+
+! ****** drift 08, length = 40 cm, excel line #11 ****** 
+drift 5 3.5 1 ! element 42, 
+drift 5 3.5 1 ! element 43
+drift 5 3.5 1 ! element 44
+drift 5 3.5 1 ! element 45
+drift 5 3.5 1 ! element 46
+drift 5 3.5 1 ! element 47
+
+!xgoal emit4d 0 200
+
+drift 5 4 1 ! element 42, 
+
+
+
+
+!@subs 1 1 6
+drift 5.0 4 1 ! element 68, total length = 301.7 cm
+
+
+! 197 Cavity #1
+!@subs 1 4 0 5 1
+cell 80 7.2 1 -3.0940450849e+02 2.3588251921e-01 2 1 -1 197.055
+cfield 2
+197M.T7
+
+drift 5 4 1 ! element 47
+!xgoal ener 0.32037 1
+!0.32037
+drift 5 4 1 ! element 48
+drift 5 4 1 ! element 49
+
+!@subs 1 4 27
+Solenoid 5 5 1 1.2956840273e+02 ! element 90, was 19.397
+!@subs 1 4 -27
+Solenoid 5 5 1 -1.2956840273e+02 ! element 90, was 19.397
+
+drift 5 3 1 ! element 50
+drift 5 3 1 ! element 51
+drift 5 3 1 ! element 52
+drift 5 3 1 ! element 53
+
+
+
+
+!@subs 1 4 2 5 3
+
+drift 5 3 1 ; element 91
+drift 5 3 1 ; element 92
+drift 5 3 1 ; element 91
+drift 5 3 1 ; element 92
+drift 5 3 1 ! element 46
+drift 5 3 1 ! element 54
+drift 5 3 1 ! element 55
+drift 5 3 1 ! element 56
+
+!@subs 1 1 7
+drift 1.8752103641e+00 3 1 ! element 47
+drift 5 3 1 ! element 46
+!@subs 1 4 10
+!Solenoid 5 5 1 0 ! element 90, was 1.947
+!Solenoid 5 5 1 0 ! element 90, was 1.947
+drift 5 3 1 ! element 55
+drift 5 3 1 ! element 56
+!xgoal ener 0.32037 1
+
+drift 5 3 1 ! element 55
+drift 5 3 1 ! element 56
+drift 5 3 1 ! element 45
+drift 5 3 1 ! element 46
+drift 5 3 1 ! element 46
+drift 5 3 1 ! element 46
+drift 5 3 1 ! element 46
+drift 5 3 1 ! element 46
+drift 5 3 1 ! element 46
+drift 5 3 1 ! element 46
+
+!@subs 1 4 16
+Solenoid 5 5 1 2.1711156367e+02 ! element 90, was 1.947
+!@subs 1 4 -16
+Solenoid 5 5 1 -2.1711156367e+02 ! element 90, was 1.947
+
+!@subs 1 1 8
+drift 8.2864909005e+00 3.5 1  !add 10 cm for extend into cell
+
+
+
+! 591 Cavity #2
+!@subs 1 4 9 
+
+
+
+
+
+drift 5 4 1 ! element 46
+
+!xgoal ener 0.32037 1
+
+!@subs 1 1 -7
+drift 4.934701101 4 1 ! element 42,
+drift 5 3.5 1 ! element 46
+drift 5 4 1 ! element 45
+
+!xgoal sigma_l 0 3000
+!xgoal emit4d 0 200
+!xgoal envx 0 3000
+
+!@subs 1 4 4 5 5
+cell 100 4.6 1 -4.4948065410e+02 6 3 1 -1 1300.3517 ! For E0=1, pk in SF is 3.95; to 33 MV/m peak, 8.35 as maximum.244 deg Use 6 for 30% margin
+cfield 3
+1300MT_SIG.T7
+
+
+drift 5 3 1  !add 10 cm for extend into cell
+
+!xgoal ener 10000 1 
+!xgoal sigma_l 0.00085 1000000
+!xgoal sigma_p 0 1000
+!xgoal emit4d 0 200
+!xgoal envx 0 3000
+
+
+drift 5 3 1
+
+
+
+!---Drift 10, length = 40 cm,  excel line # 25 - 35 ----
+!@subs 1 4 17
+Solenoid 5 5 1 10.0100474808e+02;9.2100474808e+02
+!@subs 1 4 -17
+Solenoid 5 5 1 -10.0100474808e+02
+
+!reserve a 4 cm diagnostic bend; drift:
+drift 5 3 1  !add 10 cm for extend into cell
+drift 5 3 1
+drift 5 3 1
+drift 5 3 1
+drift 5 3 1 ! element 94
+drift 5 3 1 ! element 95
+drift 5 3 1 ! element 95
+drift 5 3 1 ! element 95
+drift 5 3 1 ! element 95
+drift 5 3 1 ! element 95
+drift 5 3 1 ! element 99
+drift 5 3 1 ! element 95
+drift 5 3 1 ! element 95
+drift 5 3 1 ! element 99
+drift 5 3 1 ; element 91
+drift 5 3 1 ; element 92
+drift 5 3 1 ! element 95
+drift 5 3 1 ! element 95
+drift 5 3 1 ! element 99
+drift 5 3 1 ! element 95
+drift 5 3 1 ! element 95
+drift 5 3 1 ! element 99
+drift 5 3 1 ; element 91
+drift 5 3 1 ; element 92
+drift 5 3 1 ; element 91
+drift 5 3 1 ; element 92
+
+! last focusing before sband
+!@subs 1 4 18
+Solenoid 5 5 1 2.2264264564e+02;2.3264264564e+02
+!@subs 1 4 -18
+Solenoid 5 5 1 -2.2264264564e+02
+
+
+drift  10  3.5  1 ! element 97
+
+drift  5  3  1 ; element 94, total length =  cm
+drift  5  3  1 ; element 91
+drift  5  3  1 ; element 92
+drift  5  3  1 ; element 93
+drift  5  3  1 ; element 94, total length =  cm
+drift  5  3  1 ; element 93
+
+
+!@subs 1 4 30
+cell 120.713354 4.6 1 2.7532176613e+01 12 4 1 -1 1300.3517 ! pk in SF is 2.1; to 30 MV/m peak, 15 as maximum; if use 11.8 percavity, the maximum is 13
+cfield 4
+1300M.T7
+
+
+!@goal sigma_p 0 50
+!@goal sigma_l 0.0009 10000
+!@goal emit4d 0 7000
+
+
+; ****** drift 36, length = 9.93cm, exit acc3, bellow, begin MEBT3 ****** 
+drift  5  3  1 ; element 1392
+drift  5  3  1 ; element 1393
+
+; ****** drift 37, length = 26.1cm,  pump port, valve, until center BPM ****** 
+drift  5  3  1 ; element 1394
+drift  5  3  1 ; element 1395
+drift  5  3  1 ; element 1396
+drift  5  3  1 ; element 1397
+drift  6.1  3  1 ; element 1398
+
+; ****** drift 38, length = 11.7cm, until Q7 ****** 
+drift  5  3  1 ; element 1399
+drift  6.7  3  1 ; element 1400
+
+; ****** quad 07, QF length =10 cm, gradient -180 G/cm ****** 
+!xsubs 1 4 19
+quad  10  4  1  172 ; element 1401
+
+; ****** drift 39, length = 12.5cm until center WCM ****** 
+drift  5  3  1 ; element 1402
+drift  5  3  1 ; element 1403
+drift  2.5  3  1 ; element 1404
+
+
+; ****** drift 70, length = 12.5cm until Q8 ****** 
+drift  5  3  1 ; element 1405
+drift  5  3  1 ; element 1406
+drift  2.5  3  1 ; element 1407
+
+; ****** quad 08, QD length =10 cm, gradient 360 G/cm ****** 
+!xsubs 1 4 20 
+quad  10  4  1  -173 ; element 1408
+
+; ****** drift 41, length = 25cm Q8 to Q9 ****** 
+drift  5  3  1 ; element 1409
+drift  5  3  1 ; element 1410
+drift  5  3  1 ; element 1411
+drift  5  3  1 ; element 1412
+drift  5  3  1 ; element 1413
+
+; ****** quad 09, QF length =10 cm, gradient -180 G/cm ****** 
+!xsubs 1 4 21 element 660
+quad  10  4  1  152 ; element 1414
+
+; ****** drift 42, length =14.4cm until center view port ****** 
+drift  5  3  1 ; element 1415
+drift  5  3  1 ; element 1416
+drift  5  3  1 ; element 1417
+
+; ****** drift 43, length =15.0cm until ACC4 ****** 
+drift  5  3  1 ; element 1418
+drift  5  3  1 ; element 1419
+drift  5  3  1 ; element 1352, total length = 5377.8 cm
+
+; ****** acc. structure, ACC 1, 84-cell,2.955 m, 3GHz, 2.955*20 MV/m=59.1, (750-10)/13= 56.9 line #73 - 215 ****** 
+
+cell 5.248467 1.311 1 341.50411214953317 7.5 6 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 251.5041121495332 17.8 1 2 2856 9 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.303 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.299 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.296 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.292 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.288 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.285 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.281 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.277 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.273 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.270 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.266 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.262 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.259 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.255 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.251 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.248 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.244 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.240 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.236 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.233 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.229 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.225 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.222 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.218 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.214 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.211 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.207 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.203 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.199 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.196 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.192 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.188 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.185 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.181 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.177 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.174 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.170 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.166 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.162 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.159 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.155 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.151 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.148 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.144 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.140 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.136 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.133 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.129 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.125 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.122 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.118 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.114 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.111 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.107 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.103 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.099 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.096 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.092 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.088 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.085 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.081 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.077 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.074 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.070 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.066 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.062 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.059 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.055 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.051 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.048 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.044 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.040 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.037 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.033 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.029 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.025 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.022 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.018 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.014 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.011 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.007 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.003 1 251.5041121495332 17.8 1 2 2856 9 ; element
+trwave 3.49758 1.000 1 251.5041121495332 17.8 1 2 2856 9 ; element
+
+
+
+
+
+
+!***********placehold ends: 125cm*********
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;bpm
+drift  5  1.5  1 ; 
+! Quad 1 - excel line #967
+quad  10  1.7  1  260 ;
+
+! Drift - excel line #968,  drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+
+! Quad 2 - excel line #969
+quad  10  1.7  1  -330 ;
+
+! Drift - excel line #970,   drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+! Quad 3 - excel line #969
+quad  10  1.7  1  95 ;
+
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; element 198, total length = 2297.37 cm
+
+
+
+
+
+; ****** acc. structure, ACC 2, 84-cell, 3GHz, 15 MV/m, Line #223 - 365 ****** 
+cell 5.248467 1.311 1 -221.9943816605561 7.5 7 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 -311.9943816605561 17.8 2 2 2856 10 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 -311.9943816605561 17.8 2 2 2856 10 ; element 169 ;
+trwave 3.49758 1.303 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.299 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.296 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.292 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.288 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.285 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.281 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.277 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.273 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.270 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.266 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.262 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.259 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.255 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.251 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.248 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.244 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.240 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.236 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.233 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.229 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.225 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.222 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.218 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.214 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.211 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.207 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.203 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.199 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.196 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.192 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.188 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.185 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.181 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.177 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.174 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.170 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.166 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.162 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.159 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.155 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.151 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.148 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.144 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.140 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.136 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.133 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.129 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.125 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.122 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.118 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.114 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.111 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.107 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.103 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.099 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.096 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.092 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.088 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.085 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.081 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.077 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.074 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.070 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.066 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.062 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.059 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.055 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.051 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.048 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.044 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.040 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.037 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.033 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.029 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.025 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.022 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.018 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.014 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.011 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.007 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.003 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+trwave 3.49758 1.000 1 -311.9943816605561 17.8 2 2 2856 10 ; element
+
+
+
+
+!xgoal sigma_p 0 10000
+!xgoal ener 10000 1
+
+!***********placehold ends: 125cm*********
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;bpm
+drift  5  1.5  1 ; 
+! Quad 1 - excel line #967
+quad  10  1.7  1  260 ;
+
+! Drift - excel line #968,  drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+
+! Quad 2 - excel line #969
+quad  10  1.7  1  -510 ;
+
+! Drift - excel line #970,   drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+! Quad 3 - excel line #969
+quad  10  1.7  1  325 ; 315
+
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; element 198, total length = 2297.37 cm
+
+
+
+
+; ****** acc. structure, ACC 3, 156-cell, 3GHz, 10.23 MV/m, Line #373 - 515 ******
+
+cell 5.248467 1.311 1 294.8712752575 7.5 8 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 204.87127525749995 17.8 3 2 2856 11 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 204.87127525749995 17.8 3 2 2856 11 ; element 169 ;
+trwave 3.49758 1.303 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.299 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.296 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.292 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.288 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.285 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.281 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.277 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.273 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.270 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.266 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.262 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.259 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.255 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.251 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.248 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.244 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.240 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.236 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.233 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.229 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.225 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.222 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.218 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.214 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.211 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.207 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.203 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.199 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.196 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.192 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.188 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.185 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.181 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.177 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.174 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.170 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.166 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.162 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.159 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.155 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.151 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.148 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.144 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.140 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.136 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.133 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.129 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.125 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.122 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.118 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.114 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.111 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.107 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.103 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.099 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.096 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.092 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.088 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.085 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.081 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.077 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.074 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.070 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.066 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.062 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.059 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.055 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.051 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.048 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.044 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.040 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.037 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.033 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.029 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.025 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.022 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.018 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.014 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.011 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.007 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.003 1 204.87127525749995 17.8 3 2 2856 11 ; element
+trwave 3.49758 1.000 1 204.87127525749995 17.8 3 2 2856 11 ; element 548, total length = 1598.627 cm
+
+
+! *********** drift & quad ********** line #516 - 622 *****
+!***********placehold ends: 75cm*********
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ;bpm 
+drift  5  1.5  1 ;element 197
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+
+
+; ****** acc. structure, ACC 4, 156-cell, 3GHz, 10.23 MV/m, Line 523 - 665 ******
+!@subs 86 4 22 element 660
+cell 5.248467 1.311 1 144.60602330042218 7.5 9 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 54.60602330042219 17.8 4 2 2856 12 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 54.60602330042219 17.8 4 2 2856 12 ; element 169 ;
+trwave 3.49758 1.303 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.299 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.296 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.292 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.288 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.285 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.281 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.277 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.273 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.270 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.266 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.262 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.259 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.255 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.251 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.248 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.244 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.240 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.236 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.233 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.229 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.225 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.222 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.218 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.214 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.211 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.207 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.203 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.199 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.196 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.192 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.188 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.185 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.181 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.177 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.174 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.170 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.166 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.162 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.159 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.155 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.151 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.148 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.144 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.140 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.136 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.133 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.129 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.125 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.122 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.118 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.114 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.111 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.107 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.103 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.099 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.096 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.092 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.088 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.085 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.081 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.077 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.074 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.070 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.066 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.062 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.059 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.055 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.051 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.048 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.044 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.040 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.037 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.033 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.029 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.025 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.022 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.018 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.014 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.011 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.007 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.003 1 54.60602330042219 17.8 4 2 2856 12 ; element
+trwave 3.49758 1.000 1 54.60602330042219 17.8 4 2 2856 12 ; element 726, total length = 1598.627 cm
+
+
+
+
+
+!xgoal sigma_p 0 10000
+
+! *********** drift & quad ********** line #666 - 672 *****
+!***********placehold ends: 75cm*********
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;bpm
+drift  5  1.5  1 ; 
+! Quad 1 - excel line #967
+quad  10  1.7  1  690 ;
+
+! Drift - excel line #968,  drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+
+! Quad 2 - excel line #969
+quad  10  1.7  1  -1180 ;
+
+! Drift - excel line #970,   drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+! Quad 3 - excel line #969
+quad  10  1.7  1  510 ;
+
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; element 198, total length = 2297.37 cm
+
+
+
+; ****** acc. structure, ACC 5, 156-cell, 3GHz, 10.23 MV/m, Line #673 - 815 ****** 
+!@subs 143 4 23 element 660
+cell 5.248467 1.311 1 301.1200435809143 7.5 10 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 211.12004358091428 17.8 5 2 2856 13 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 211.12004358091428 17.8 5 2 2856 13 ; element 169 ;
+trwave 3.49758 1.303 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.299 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.296 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.292 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.288 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.285 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.281 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.277 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.273 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.270 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.266 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.262 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.259 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.255 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.251 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.248 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.244 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.240 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.236 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.233 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.229 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.225 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.222 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.218 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.214 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.211 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.207 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.203 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.199 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.196 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.192 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.188 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.185 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.181 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.177 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.174 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.170 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.166 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.162 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.159 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.155 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.151 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.148 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.144 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.140 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.136 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.133 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.129 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.125 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.122 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.118 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.114 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.111 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.107 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.103 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.099 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.096 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.092 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.088 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.085 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.081 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.077 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.074 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.070 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.066 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.062 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.059 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.055 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.051 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.048 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.044 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.040 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.037 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.033 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.029 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.025 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.022 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.018 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.014 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.011 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.007 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.003 1 211.12004358091428 17.8 5 2 2856 13 ; element
+trwave 3.49758 1.000 1 211.12004358091428 17.8 5 2 2856 13 ; element 904, total length = 1598.627 cm
+
+
+
+
+! *********** drift & quad ********** line #816 - 822 *****
+!***********placehold ends: 75cm*********
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ;bpm 
+drift  5  1.5  1 ;element 197
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+
+
+
+
+; ****** acc. structure, ACC 6, 156-cell, 3GHz, 10.23 MV/m, Line # 823 - 965  ******
+!@subs 143 4 24 element 660
+cell 5.248467 1.311 1 150.49899394038914 7.5 11 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 60.49899394038915 17.8 6 2 2856 14 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 60.49899394038915 17.8 6 2 2856 14 ; element 169 ;
+trwave 3.49758 1.303 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.299 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.296 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.292 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.288 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.285 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.281 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.277 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.273 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.270 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.266 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.262 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.259 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.255 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.251 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.248 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.244 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.240 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.236 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.233 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.229 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.225 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.222 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.218 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.214 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.211 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.207 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.203 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.199 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.196 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.192 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.188 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.185 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.181 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.177 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.174 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.170 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.166 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.162 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.159 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.155 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.151 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.148 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.144 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.140 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.136 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.133 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.129 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.125 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.122 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.118 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.114 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.111 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.107 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.103 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.099 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.096 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.092 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.088 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.085 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.081 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.077 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.074 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.070 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.066 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.062 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.059 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.055 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.051 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.048 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.044 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.040 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.037 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.033 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.029 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.025 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.022 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.018 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.014 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.011 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.007 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.003 1 60.49899394038915 17.8 6 2 2856 14 ; element
+trwave 3.49758 1.000 1 60.49899394038915 17.8 6 2 2856 14 ; element 1082, total length = 1598.627 cm
+
+
+
+
+
+! *********** drift & quad ********** line #966 - 972 *****
+; ****** drift #, line #966 , length = 67.73cm
+!***********placehold ends: 75cm*********
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;bpm
+drift  5  1.5  1 ; 
+! Quad 1 - excel line #967
+quad  25  1.7  1  290 ;
+
+! Drift - excel line #968,  drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+
+! Quad 2 - excel line #969
+quad  25  1.7  1  -700 ;
+
+! Drift - excel line #970,   drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+! Quad 3 - excel line #969
+quad  25  1.7  1  400 ;
+
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; element 198, total length = 2297.37 cm
+
+
+
+
+
+
+
+
+; ****** acc. structure, ACC 7, 84-cell, 3GHz, 10.23 MV/m ****** 
+!@subs 143 4 25 element 660
+cell 5.248467 1.311 1 204.26743252285942 7.5 12 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 114.26743252285942 17.8 7 2 2856 15 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 114.26743252285942 17.8 7 2 2856 15 ; element 169 ;
+trwave 3.49758 1.303 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.299 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.296 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.292 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.288 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.285 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.281 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.277 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.273 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.270 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.266 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.262 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.259 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.255 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.251 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.248 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.244 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.240 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.236 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.233 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.229 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.225 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.222 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.218 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.214 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.211 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.207 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.203 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.199 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.196 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.192 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.188 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.185 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.181 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.177 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.174 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.170 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.166 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.162 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.159 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.155 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.151 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.148 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.144 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.140 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.136 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.133 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.129 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.125 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.122 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.118 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.114 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.111 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.107 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.103 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.099 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.096 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.092 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.088 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.085 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.081 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.077 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.074 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.070 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.066 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.062 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.059 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.055 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.051 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.048 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.044 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.040 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.037 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.033 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.029 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.025 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.022 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.018 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.014 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.011 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.007 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.003 1 114.26743252285942 17.8 7 2 2856 15 ; element
+trwave 3.49758 1.000 1 114.26743252285942 17.8 7 2 2856 15 ; element 1260, total length = 1598.627 cm
+
+
+! *********** drift & quad ********** line #966 - 972 *****
+!***********placehold ends: 75cm*********
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ;bpm 
+drift  5  1.5  1 ;element 197
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+
+
+
+; ****** acc. structure, ACC 8, 84-cell, 3GHz, 10.23 MV/m ******
+!@subs 143 4 26 element 660
+cell 5.248467 1.311 1 53.62945099271717 7.5 13 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 -36.37054900728283 17.8 8 2 2856 16 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 -36.37054900728283 17.8 8 2 2856 16 ; element 169 ;
+trwave 3.49758 1.303 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.299 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.296 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.292 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.288 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.285 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.281 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.277 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.273 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.270 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.266 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.262 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.259 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.255 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.251 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.248 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.244 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.240 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.236 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.233 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.229 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.225 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.222 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.218 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.214 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.211 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.207 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.203 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.199 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.196 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.192 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.188 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.185 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.181 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.177 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.174 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.170 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.166 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.162 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.159 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.155 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.151 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.148 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.144 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.140 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.136 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.133 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.129 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.125 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.122 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.118 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.114 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.111 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.107 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.103 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.099 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.096 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.092 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.088 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.085 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.081 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.077 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.074 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.070 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.066 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.062 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.059 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.055 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.051 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.048 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.044 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.040 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.037 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.033 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.029 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.025 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.022 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.018 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.014 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.011 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.007 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.003 1 -36.37054900728283 17.8 8 2 2856 16 ; element
+trwave 3.49758 1.000 1 -36.37054900728283 17.8 8 2 2856 16 ; element 1438, total length = 1598.627 cm
+
+
+! *********** drift & quad ********** line #966 - 972 *****
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;bpm
+drift  5  1.5  1 ; 
+! Quad 1 - excel line #967
+quad  25  1.7  1  480 ;
+
+! Drift - excel line #968,  drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+
+! Quad 2 - excel line #969
+quad  25  1.7  1  -960 ;
+
+! Drift - excel line #970,   drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+! Quad 3 - excel line #969
+quad  25  1.7  1  515 ;
+
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; element 198, total length = 2297.37 cm
+
+; ****** acc. structure, ACC 9, 84-cell, 3GHz, 10.23 MV/m ******
+!@subs 143 4 26 element 660
+cell 5.248467 1.311 1 107.44354280990862 7.5 14 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 17.443542809908614 17.8 9 2 2856 17 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 17.443542809908614 17.8 9 2 2856 17 ; element 169 ;
+trwave 3.49758 1.303 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.299 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.296 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.292 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.288 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.285 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.281 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.277 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.273 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.270 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.266 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.262 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.259 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.255 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.251 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.248 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.244 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.240 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.236 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.233 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.229 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.225 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.222 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.218 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.214 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.211 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.207 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.203 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.199 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.196 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.192 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.188 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.185 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.181 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.177 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.174 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.170 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.166 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.162 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.159 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.155 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.151 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.148 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.144 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.140 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.136 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.133 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.129 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.125 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.122 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.118 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.114 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.111 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.107 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.103 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.099 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.096 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.092 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.088 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.085 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.081 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.077 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.074 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.070 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.066 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.062 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.059 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.055 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.051 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.048 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.044 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.040 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.037 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.033 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.029 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.025 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.022 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.018 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.014 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.011 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.007 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.003 1 17.443542809908614 17.8 9 2 2856 17 ; element
+trwave 3.49758 1.000 1 17.443542809908614 17.8 9 2 2856 17 ; element 1438, total length = 1598.627 cm
+
+! *********** drift & quad ********** line #966 - 972 *****
+!***********placehold ends: 75cm*********
+
+
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ;bpm 
+drift  5  1.5  1 ;element 197
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+
+; ****** acc. structure, ACC 10, 84-cell, 3GHz, 10.23 MV/m ****** 
+!@subs 143 4 26 element 660
+cell 5.248467 1.311 1 -43.73595971002189 7.5 15 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 -133.7359597100219 17.8 10 2 2856 18 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 -133.7359597100219 17.8 10 2 2856 18 ; element 169 ;
+trwave 3.49758 1.303 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.299 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.296 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.292 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.288 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.285 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.281 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.277 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.273 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.270 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.266 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.262 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.259 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.255 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.251 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.248 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.244 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.240 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.236 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.233 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.229 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.225 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.222 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.218 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.214 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.211 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.207 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.203 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.199 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.196 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.192 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.188 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.185 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.181 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.177 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.174 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.170 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.166 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.162 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.159 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.155 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.151 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.148 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.144 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.140 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.136 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.133 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.129 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.125 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.122 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.118 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.114 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.111 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.107 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.103 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.099 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.096 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.092 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.088 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.085 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.081 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.077 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.074 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.070 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.066 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.062 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.059 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.055 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.051 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.048 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.044 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.040 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.037 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.033 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.029 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.025 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.022 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.018 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.014 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.011 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.007 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.003 1 -133.7359597100219 17.8 10 2 2856 18 ; element
+trwave 3.49758 1.000 1 -133.7359597100219 17.8 10 2 2856 18 ; element 1438, total length = 1598.627 cm
+
+
+! *********** drift & quad ********** line #966 - 972 *****
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;bpm
+drift  5  1.5  1 ; 
+! Quad 1 - excel line #967
+quad  25  1.7  1  630 ;
+
+! Drift - excel line #968,  drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+
+! Quad 2 - excel line #969
+quad  25  1.7  1  -1220 ; !1250
+
+! Drift - excel line #970,   drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+! Quad 3 - excel line #969
+quad  25  1.7  1  635 ; !680
+
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; element 198, total length = 2297.37 cm
+
+; ****** acc. structure, ACC 11, 84-cell, 3GHz, 10.23 MV/m ******
+!@subs 143 4 26 element 660
+cell 5.248467 1.311 1 10.925095232544678 7.5 16 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 -79.07490476745532 17.8 11 2 2856 19 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 -79.07490476745532 17.8 11 2 2856 19 ; element 169 ;
+trwave 3.49758 1.303 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.299 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.296 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.292 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.288 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.285 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.281 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.277 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.273 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.270 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.266 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.262 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.259 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.255 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.251 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.248 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.244 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.240 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.236 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.233 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.229 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.225 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.222 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.218 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.214 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.211 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.207 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.203 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.199 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.196 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.192 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.188 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.185 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.181 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.177 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.174 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.170 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.166 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.162 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.159 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.155 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.151 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.148 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.144 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.140 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.136 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.133 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.129 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.125 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.122 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.118 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.114 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.111 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.107 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.103 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.099 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.096 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.092 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.088 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.085 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.081 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.077 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.074 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.070 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.066 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.062 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.059 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.055 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.051 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.048 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.044 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.040 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.037 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.033 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.029 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.025 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.022 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.018 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.014 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.011 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.007 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.003 1 -79.07490476745532 17.8 11 2 2856 19 ; element
+trwave 3.49758 1.000 1 -79.07490476745532 17.8 11 2 2856 19 ; element 1438, total length = 1598.627 cm
+
+! *********** drift & quad ********** line #966 - 972 *****
+!***********placehold ends: 75cm*********
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ;bpm 
+drift  5  1.5  1 ;element 197
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+
+; ****** acc. structure, ACC 12, 84-cell, 3GHz, 10.23 MV/m ****** 
+!@subs 143 4 26 element 660
+cell 5.248467 1.311 1 -140.217038222441 7.5 17 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 -230.217038222441 17.8 12 2 2856 20 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 -230.217038222441 17.8 12 2 2856 20 ; element 169 ;
+trwave 3.49758 1.303 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.299 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.296 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.292 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.288 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.285 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.281 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.277 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.273 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.270 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.266 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.262 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.259 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.255 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.251 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.248 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.244 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.240 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.236 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.233 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.229 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.225 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.222 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.218 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.214 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.211 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.207 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.203 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.199 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.196 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.192 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.188 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.185 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.181 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.177 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.174 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.170 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.166 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.162 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.159 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.155 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.151 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.148 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.144 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.140 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.136 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.133 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.129 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.125 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.122 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.118 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.114 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.111 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.107 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.103 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.099 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.096 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.092 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.088 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.085 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.081 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.077 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.074 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.070 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.066 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.062 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.059 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.055 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.051 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.048 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.044 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.040 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.037 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.033 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.029 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.025 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.022 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.018 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.014 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.011 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.007 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.003 1 -230.217038222441 17.8 12 2 2856 20 ; element
+trwave 3.49758 1.000 1 -230.217038222441 17.8 12 2 2856 20 ; element 1438, total length = 1598.627 cm
+
+! *********** drift & quad ********** line #966 - 972 *****
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;bpm
+drift  5  1.5  1 ; 
+! Quad 1 - excel line #967
+quad  25  1.7  1  720 ; !720
+
+! Drift - excel line #968,  drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+
+! Quad 2 - excel line #969
+quad  25  1.7  1  -1430 ;!1430
+
+! Drift - excel line #970,   drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+! Quad 3 - excel line #969
+quad  25  1.7  1  745 ;!745
+
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; element 198, total length = 2297.37 cm
+drift  5  1.5  1 ; element 198, total length = 2297.37 cm
+
+; ****** acc. structure, ACC 13, 84-cell, 3GHz, 10.23 MV/m ******
+!@subs 143 4 26 element 660
+cell 5.248467 1.311 1 102.13558216638381 7.5 18 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 12.13558216638382 17.8 13 2 2856 21 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 12.13558216638382 17.8 13 2 2856 21 ; element 169 ;
+trwave 3.49758 1.303 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.299 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.296 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.292 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.288 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.285 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.281 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.277 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.273 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.270 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.266 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.262 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.259 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.255 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.251 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.248 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.244 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.240 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.236 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.233 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.229 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.225 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.222 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.218 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.214 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.211 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.207 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.203 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.199 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.196 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.192 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.188 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.185 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.181 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.177 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.174 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.170 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.166 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.162 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.159 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.155 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.151 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.148 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.144 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.140 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.136 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.133 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.129 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.125 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.122 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.118 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.114 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.111 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.107 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.103 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.099 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.096 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.092 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.088 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.085 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.081 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.077 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.074 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.070 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.066 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.062 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.059 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.055 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.051 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.048 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.044 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.040 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.037 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.033 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.029 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.025 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.022 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.018 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.014 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.011 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.007 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.003 1 12.13558216638382 17.8 13 2 2856 21 ; element
+trwave 3.49758 1.000 1 12.13558216638382 17.8 13 2 2856 21 ; element 1438, total length = 1598.627 cm
+
+! *********** drift & quad ********** line #966 - 972 *****
+!***********placehold ends: 75cm*********
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ;bpm 
+drift  5  1.5  1 ;element 197
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+
+; ****** acc. structure, ACC 14, 84-cell, 3GHz, 10.23 MV/m ****** 
+!@subs 143 4 26 element 660
+cell 5.248467 1.311 1 311.3331425274119 7.5 19 2 1 2856 0 0 1.87225 1.09305 0.324515 -2.587857E-02 -7.577335E-02 -3.423843E-02 -2.227982E-03 6.018687E-03 3.651328E-03 6.435346E-04 -4.324264E-04 -3.580928E-04 -9.232285E-05 2.753217E-05
+trwave 1.74879 1.311 1 221.3331425274119 17.8 14 2 2856 22 -5 5 0.6666667 150 0 0 0 0 0 0 2.864540E-05 -3.254854E-04 3.587722E-03 -3.689533E-02 0.402279 0.913742 -4.317906E-02 2.856622E-03 -1.608216E-04 7.708867E-06 -6.405356E-07
+trwave 3.49758 1.307 1 221.3331425274119 17.8 14 2 2856 22 ; element 169 ;
+trwave 3.49758 1.303 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.299 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.296 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.292 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.288 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.285 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.281 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.277 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.273 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.270 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.266 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.262 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.259 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.255 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.251 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.248 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.244 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.240 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.236 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.233 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.229 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.225 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.222 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.218 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.214 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.211 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.207 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.203 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.199 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.196 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.192 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.188 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.185 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.181 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.177 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.174 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.170 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.166 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.162 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.159 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.155 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.151 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.148 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.144 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.140 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.136 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.133 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.129 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.125 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.122 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.118 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.114 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.111 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.107 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.103 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.099 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.096 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.092 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.088 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.085 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.081 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.077 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.074 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.070 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.066 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.062 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.059 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.055 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.051 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.048 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.044 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.040 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.037 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.033 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.029 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.025 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.022 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.018 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.014 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.011 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.007 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.003 1 221.3331425274119 17.8 14 2 2856 22 ; element
+trwave 3.49758 1.000 1 221.3331425274119 17.8 14 2 2856 22 ; element 1438, total length = 1598.627 cm
+
+! *********** drift & quad ********** line #966 - 972 *****
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;bpm
+drift  5  1.5  1 ; 
+! Quad 1 - excel line #967
+quad  25  1.7  1  610 ; !720
+
+! Drift - excel line #968,  drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+
+! Quad 2 - excel line #969
+quad  25  1.7  1  -1230 ;!1430
+
+! Drift - excel line #970,   drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+! Quad 3 - excel line #969
+quad  25  1.7  1  665 ;!745
+!********exstra space
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; cross
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; corrector
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; element 198, total length = 2297.37 cm
+drift  5  1.5  1 ; element 198, total length = 2297.37 cm
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;  
+drift  5  1.5  1 ; 
+drift  6  1.5  1 ; suppose linac ends
+
+
+
+drift  5  1.5  1 ; element 195
+drift  5  1.5  1 ; bellow
+drift  5  1.5  1 ; element 197
+drift  5  1.5  1 ; 
+drift  5  1.5  1 ;bpm
+drift  5  1.5  1 ; 
+! Quad 1 - excel line #967
+quad  25  1.7  1  610 ; !720
+
+! Drift - excel line #968,  drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+
+! Quad 2 - excel line #969
+quad  25  1.7  1  -1130 ;!1430
+
+! Drift - excel line #970,   drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+! Quad 3 - excel line #969
+quad  25  1.7  1  665 ;!745
+
+! Drift - excel line #970,   drift length = 25 cm ******
+
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+drift  5  1.5  1 ;
+
+
+
+
+
+
+
+
+
+
+
+
+!ZOUT  NPrint  D_PHI  Z1  Z2  X1  Y1  X2  Y2
+ZOUT  5000  90  100  500  0 0 0  0
+
+ZLIMIT  100
+!CHARGE  -1  1
+
+!@subs 1 4 28 6 29
+INPUT 9 19999 0.5 4.7529637582e-01 5000 232 ! r=6 mm, 300 ps with 3 sigma_l.2 nC or 450ps with 1.7 nC, phi_max(half of bunch length)=154.224 --> 1ns; transverse 6 mm in radius with 1 sigma cut off
+!
+! OUTPUT  type  1=text  /  5=pargraf
+!
+OUTPUT  5
+!
+!
+!SCHEFF  I_T[A]  Delta_R_SC  Delta_Z_SC  N_R  N_Z  N_bunch  L_bunch  RingOption  MeshFactor  R_wall  b, for I_T=Q*f0, f0=1.3007643GHz, 15nc-->19.5115A
+SCHEFF 4.855 1.5 30 20  400  0  0  7  1.3  0  0   !1.2 nC=3.42@2956  for 20k particles; 7 for photocathode
+
+!START  Phi_0  Delta_Phi  NumberOfSteps  SpaceChargeSteps  OutputSteps
+START  0  2  3500  1  50 !before SHB tot=7000: 1.52 m: between dipole at sol
+save 0
+
+SCHEFF  4.855 3.1 30 20  400  0  0  3  1.3  0  0   !15 nC=19.5115  for 20k particles ; 3 for no cathode
+restart 2 5000 1 50 0 0 ! tot=10000+7000=17000 sol before buncher
+save 1
+
+
+SCHEFF  4.855 3.1 20 20  100  0  0  3  1.3  0  0   !15 nC=19.5115  end to before the chicane matching quads
+restart 5 2000 1 50 0 1 ! total=1700*8+17000= 27000 before the sol into capture taper tot=15000+7500=22500 : before the buncher focusing sol
+save 2
+
+
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.2  0  0   !  1.3 AWA exit
+restart 5 3860 1 50 0 2 !  total=27000+ 3860*5=46300
+save 3
+
+!quads
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   ! 2856 exit
+restart 5 2980 1 50 0 3 ! total=46300+ 3080*5=61700
+save 4
+
+!quads
+
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 2st cryo
+restart 5 2980 1 50 0 4 !   total=61700+19600=73200 !2850
+save 5
+
+
+
+!quads
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 3st cryo
+restart 5 3080 1 50 0 5 !   total=73200+5*3080=88600 ACC3
+save 6
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 4st cryo
+restart 5 2250 1 50 0 6 !   total=88600+20000=115800 with 4000; ACC4
+save 7
+
+!quads
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 5st cryo
+restart 5 3080 1 50 0 7 !   total=115800+20200=136000 with 4040; ACC5
+save 8
+
+
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 6st cryo
+restart 5 2250 1 50 0 8 !   total=136000+20000=156000 ACC6  2500 or 2800
+save 9
+
+
+!quads
+
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 7st cryo
+restart 5 3180 1 50 0 9 !   total=156000+20000=176000 ACC7
+save 10
+
+
+
+
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 8st cryo
+restart 5 2320 1 50 0 10 !   total=156000+20000=176000 ACC8
+save 11
+
+
+!quads
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 9 cryo
+restart 5 3310 1 50 0 11 !   total=156000+20000=176000 ACC9
+save 12
+
+
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 10 cryo
+restart 5 2400 1 50 0 12 !   total=156000+20000=176000 ACC10
+save 13
+
+
+
+!quad
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 11 cryo
+restart 5 3310 1 50 0 13 !   total=156000+20000=176000 ACC11
+save 14
+
+
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 12 cryo
+restart 5 2400 1 50 0 14 !   total=156000+20000=176000 ACC12
+save 15
+
+
+
+!quads
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 13 cryo
+restart 5 3310 1 50 0 15 !   total=156000+20000=176000 ACC13
+save 16
+
+
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 13 cryo
+restart 5 2350 1 50 0 16 !   total=156000+20000=176000 ACC13
+save 17
+
+!quad
+
+SCHEFF  4.855 2.1 2 20  20  0  0  3  1.1  0  0   !15 nC=19.5115 end to the end of the 13 cryo
+restart 25 1500 1 50 0 17 !   total=156000+20000=176000 ACC13
+save 18
+
+end
+
+
