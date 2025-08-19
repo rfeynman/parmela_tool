@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # Load the Excel file
-filename = "rr7.inp"
+filename = "rr6_062025.inp"
 file_path = "/Users/wange/Documents/Research/eRHIC injector/eRHIC baseline/Beamline/Lattice/sband2025/"  # Replace with the path to your file
 file_path_name = os.path.join(file_path, filename)
 ele_name_list = ["Solenoid","cell","quad","trwave"]
