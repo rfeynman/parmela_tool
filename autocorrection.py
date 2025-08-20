@@ -8,10 +8,10 @@ import os
 #   python autocorrection.py <input_file.inp> <delta_val> <sect> <iterations>
 #
 # Example:
-#   python3 autocorrection.py rr6.inp 0.1 0 10
+#   python3 autocorrection.py rr6.inp 30 0 10
 #
 # This script optimizes steerer settings to minimize beam orbit deviation.
-
+# Two models are used. Parabola fitting and linear. If the corrector BL is larger than certain number, then choose linear fitting. Linear fitting is more effective.
 # --- Configuration ---
 # Convergence tolerance: optimization stops if orbit change is less than this value.
 TOLERANCE = 2e-4
