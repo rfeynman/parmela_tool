@@ -14,7 +14,7 @@ import os
 # Two models are used. Parabola fitting and linear. If the corrector BL is larger than certain number, then choose linear fitting. Linear fitting is more effective.
 # --- Configuration ---
 # Convergence tolerance: optimization stops if orbit change is less than this value.
-TOLERANCE = 2e-4
+TOLERANCE = 1e-4
 
 def print_usage_and_exit():
     """Prints the script usage information and exits."""

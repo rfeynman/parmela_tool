@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # Load the Excel file
-file_path = "/Users/wange/Documents/Research/eRHIC injector/eRHIC baseline/Beamline/Lattice/sband2025/py_pro.xlsx"  # Replace with the path to your file
+file_path = "/Users/wange/Documents/Research/eRHIC injector/eRHIC baseline/Beamline/Lattice/sband2025/july/py_pro.xlsx"  # Replace with the path to your file
 df = pd.read_excel(file_path, sheet_name="Sheet1")
 
 # Initialize a list to store processed rows
