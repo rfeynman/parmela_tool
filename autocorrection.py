@@ -10,11 +10,14 @@ import shutil
 #
 # Example:
 #   python3 autocorrection.py rr6_with_cors.inp 0.1 0 10
-#
+# 
+#0.1: change 10% from original value
+#0: first cor indices is 0
+# 
 # This script sequentially optimizes all steerer settings in a file to minimize beam orbit.
 
 # --- Configuration ---
-# Convergence tolerance: optimization stops if orbit change is less than this value.
+# Convergence tolerance: optimization stops if orbit change is less than this value. tolerance cannot be too small. If set to 1e-7, it may not converaged. suggest no more than 1e-5
 TOLERANCE = 2e-4
 
 # --- Global State ---
