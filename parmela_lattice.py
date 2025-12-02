@@ -197,30 +197,44 @@ def process_parmela_file(filepath):
         lattice_rows.append(last_ele)
 
     # --- 3. Post-Process Lattice for Coordinates ---
-    # Note: z1 and z2 in PARMELA are typically path length 's'. 
-    # We calculate X, Y, Z, THETA based on cumulative angle.
+    # Logic:
+    # 1. Find bend point sbend = s1 + ds/2 for lines with non-zero angle.
+    # 2. Update cumulative theta.
+    # 3. Calculate X, Y, Z using:
+    #    X = (s2 - sbend) * sin(THETA)
+    #    Z = sbend + (s2 - sbend) * cos(THETA)
     
     cum_theta = 0.0
+    current_sbend = 0.0 # Initial pivot is 0
+    
     for row in lattice_rows:
-        # Update cumulative angle with the element's bend angle
-        # Assuming angle is in degrees.
+        s1 = row['z1']
+        s2 = row['z2']
+        ds = row['dz']
         angle_deg = row['angle']
-        cum_theta += angle_deg # degrees
+        
+        # Check for bend point update
+        if angle_deg != 0.0:
+            # Update pivot point to the middle of this bend
+            current_sbend = s1 + ds / 2.0
+            # Update cumulative angle
+            cum_theta += angle_deg 
         
         # Convert to radians for calc
         theta_rad = math.radians(cum_theta)
         
-        # Calculate coordinates based on end position (z2/s2)
-        # Request: X = z2*sin(THETA), Y=0, Z = z2*cos(THETA)
-        s2 = row['z2'] # This is path length in cm
+        # Calculate coordinates relative to the last bend pivot (sbend)
+        # If no bend has happened yet, sbend=0, theta=0 -> X=0, Z=s2 (straight line)
         
-        # It seems the request implies global coordinates X/Z based on path length S and angle.
-        # NOTE: This is a simplified transformation assuming instantaneous angle change or linear approximation 
-        # rather than integrating step-by-step, but matches the specific formula request.
+        # X = (s2 - sbend) * sin(THETA)
+        row['X'] = (s2 - current_sbend) * math.sin(theta_rad)
         
-        row['X'] = s2 * math.sin(theta_rad)
+        # Y = 0
         row['Y'] = 0.0
-        row['Z'] = s2 * math.cos(theta_rad)
+        
+        # Z = sbend + (s2 - sbend) * cos(THETA)
+        row['Z'] = current_sbend + (s2 - current_sbend) * math.cos(theta_rad)
+        
         row['THETA'] = cum_theta
 
     return req_data, lattice_rows
