@@ -196,6 +196,33 @@ def process_parmela_file(filepath):
     if last_ele and (not lattice_rows or lattice_rows[-1] != last_ele):
         lattice_rows.append(last_ele)
 
+    # --- 3. Post-Process Lattice for Coordinates ---
+    # Note: z1 and z2 in PARMELA are typically path length 's'. 
+    # We calculate X, Y, Z, THETA based on cumulative angle.
+    
+    cum_theta = 0.0
+    for row in lattice_rows:
+        # Update cumulative angle with the element's bend angle
+        # Assuming angle is in degrees.
+        angle_deg = row['angle']
+        cum_theta += angle_deg # degrees
+        
+        # Convert to radians for calc
+        theta_rad = math.radians(cum_theta)
+        
+        # Calculate coordinates based on end position (z2/s2)
+        # Request: X = z2*sin(THETA), Y=0, Z = z2*cos(THETA)
+        s2 = row['z2'] # This is path length in cm
+        
+        # It seems the request implies global coordinates X/Z based on path length S and angle.
+        # NOTE: This is a simplified transformation assuming instantaneous angle change or linear approximation 
+        # rather than integrating step-by-step, but matches the specific formula request.
+        
+        row['X'] = s2 * math.sin(theta_rad)
+        row['Y'] = 0.0
+        row['Z'] = s2 * math.cos(theta_rad)
+        row['THETA'] = cum_theta
+
     return req_data, lattice_rows
 
 def process_beam_file(filepath):
@@ -297,8 +324,8 @@ def generate_lattice_plot(df_lattice, save_path, df_beam=None, beam_keys=None):
     max_s = 0
     
     for idx, row in df_lattice.iterrows():
-        s_start = row['z1'] / 100.0
-        s_end = row['z2'] / 100.0
+        s_start = row['s1 [cm]'] / 100.0 # Using s1/s2 from updated df structure
+        s_end = row['s2 [cm]'] / 100.0
         length_m = s_end - s_start
         name = row['element'].lower()
         max_s = max(max_s, s_end)
@@ -405,7 +432,7 @@ def generate_lattice_plot(df_lattice, save_path, df_beam=None, beam_keys=None):
     cur_pos = np.array([0.0, 0.0]) # [Global Z, Global X]
     
     for idx, row in df_lattice.iterrows():
-        length_m = row['dz'] / 100.0
+        length_m = row['ds [cm]'] / 100.0 # Using ds from updated df
         name = row['element'].lower()
         p1 = cur_pos.copy()
         
@@ -532,7 +559,20 @@ if __name__ == "__main__":
 
     if req_data and lattice_data:
         df_lattice = pd.DataFrame(lattice_data)
+        
+        # Rename columns as requested
+        df_lattice.rename(columns={'z1': 's1 [cm]', 'z2': 's2 [cm]', 'dz': 'ds [cm]', 'X': 'X [cm]', 'Y': 'Y [cm]', 'Z': 'Z [cm]'}, inplace=True)
+        
+        # Re-index n 
         df_lattice['n'] = range(1, len(df_lattice) + 1)
+        
+        # Reorder columns to put X, Y, Z, THETA after angle (and ensure others exist)
+        cols = list(df_lattice.columns)
+        # Basic order preference if keys exist
+        desired_order = ['n', 's1 [cm]', 'element', 's2 [cm]', 'ds [cm]', 'phase', 'amp', 'angle', 'X [cm]', 'Y [cm]', 'Z [cm]', 'THETA']
+        # Filter desired order for keys that actually exist
+        final_order = [c for c in desired_order if c in cols] + [c for c in cols if c not in desired_order]
+        df_lattice = df_lattice[final_order]
 
         print(f"Creating Excel: {output_excel}")
         with pd.ExcelWriter(output_excel, engine='openpyxl') as writer:
