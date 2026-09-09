@@ -2,6 +2,7 @@
 #This is pal version, that can run the multiple parmela at once. Limited by the # of CPU
 #author: Erdong Wang
 #Version 1.4 Sept.8th 2025
+# usage: python error_ana_pal_v2.py <input_filename.inp> <error_config.yaml>
 
 
 import os
